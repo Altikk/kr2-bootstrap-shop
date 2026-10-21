@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Адрес, телефон и часы работы городской библиотеки.">
+  <title>Контакты — Городская библиотека</title>
+
+  <!-- Bootstrap подключён локально из папки vendor/, затем наш custom.css -->
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <header class="site-header sticky-top">
+    <nav class="navbar navbar-expand-lg" aria-label="Основная навигация">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">📚 Библиотека</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+                aria-controls="main-nav" aria-expanded="false" aria-label="Открыть меню">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="main-nav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+            <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог</a></li>
+            <li class="nav-item"><a class="nav-link" href="product.html">Книга</a></li>
+            <li class="nav-item"><a class="nav-link" href="order.html">Заявка</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="contacts.html">Контакты</a></li>
+          </ul>
+          <a class="btn btn-primary ms-lg-3" href="order.html">Забронировать книгу</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container py-4 flex-grow-1">
+    <nav aria-label="Хлебные крошки">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Контакты</li>
+      </ol>
+    </nav>
+
+    <h1 class="mb-4">Контакты</h1>
+
+    <div class="row g-4">
+      <div class="col-12 col-md-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="h5">Как с нами связаться</h2>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item px-0"><strong>Телефон:</strong> <a href="tel:+79000000000">+7 (900) 000-00-00</a></li>
+              <li class="list-group-item px-0"><strong>E-mail:</strong> <a href="mailto:info@example.com">info@example.com</a></li>
+              <li class="list-group-item px-0"><strong>Адрес:</strong> г. Москва, ул. Читальная, 12</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="h5">Часы работы</h2>
+            <table class="table table-sm mb-0">
+              <caption class="visually-hidden">Часы работы библиотеки</caption>
+              <tbody>
+                <tr><th scope="row">Понедельник — пятница</th><td>10:00–20:00</td></tr>
+                <tr><th scope="row">Суббота</th><td>10:00–18:00</td></tr>
+                <tr><th scope="row">Воскресенье</th><td><span class="badge text-bg-secondary">Выходной</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert-light border mt-4 d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <span>Хотите забронировать книгу заранее?</span>
+      <a class="btn btn-primary" href="order.html">Оформить заявку</a>
+    </div>
+  </main>
+
+  <footer class="site-footer mt-auto pt-5 pb-3">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <h2 class="h5">📚 Библиотека</h2>
+          <p class="mb-0">Городская библиотека: более 50 000 книг, читальный зал и бронирование онлайн.</p>
+        </div>
+        <div class="col-6 col-md-4">
+          <h2 class="h5">Разделы</h2>
+          <ul class="list-unstyled mb-0">
+            <li><a href="catalog.html">Каталог</a></li>
+            <li><a href="order.html">Заявка на книгу</a></li>
+            <li><a href="index.html#faq">Частые вопросы</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-4">
+          <h2 class="h5">Контакты</h2>
+          <ul class="list-unstyled mb-0">
+            <li>+7 (900) 000-00-00</li>
+            <li>info@example.com</li>
+            <li>г. Москва, ул. Читальная, 12</li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <p class="small mb-0">&copy; 2026 Учебный проект. Дисциплина «Фронтенд и бэкенд разработка», КР №2.</p>
+    </div>
+  </footer>
+
+  <a class="btn btn-primary position-fixed bottom-0 end-0 m-3 z-3" href="#">Наверх</a>
+
+  <!-- Всплывающее уведомление (Bootstrap toast) — показывается после отправки формы -->
+  <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+    <div class="toast align-items-center text-bg-success border-0" id="success-toast" role="status" aria-live="polite" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">Заявка отправлена! Мы подготовим книгу к вашему приходу.</div>
+        <button class="btn-close btn-close-white me-2 m-auto" type="button" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

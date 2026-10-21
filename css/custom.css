@@ -1,0 +1,290 @@
+/* =========================================================
+   custom.css — точечная настройка проекта поверх Bootstrap.
+   Подключается ПОСЛЕ bootstrap.min.css, поэтому может
+   переопределять его переменные и стили.
+   ========================================================= */
+
+
+/* ===============================
+   1. Палитра проекта
+   =============================== */
+
+:root {
+  --color-bg: #fffaf4;
+  --color-text: #2b1d14;
+  --color-primary: #7b4a2d;
+  --color-primary-dark: #54301b;
+  --color-surface: #f6ede2;
+  --color-dark: #2b1d14;
+
+  /* Подменяем переменные Bootstrap своими цветами */
+  --bs-body-bg: var(--color-bg);
+  --bs-body-color: var(--color-text);
+  --bs-primary: #7b4a2d;
+  --bs-primary-rgb: 123, 74, 45;
+  --bs-dark-rgb: 43, 29, 20;
+  --bs-link-color-rgb: 123, 74, 45;
+  --bs-link-hover-color-rgb: 84, 48, 27;
+  --bs-border-color: #e3d3c2;
+}
+
+
+/* ===============================
+   2. Кнопки и элементы форм в цветах проекта
+   У кнопок Bootstrap свои переменные --bs-btn-*
+   =============================== */
+
+.btn-primary {
+  --bs-btn-bg: var(--color-primary);
+  --bs-btn-border-color: var(--color-primary);
+  --bs-btn-hover-bg: var(--color-primary-dark);
+  --bs-btn-hover-border-color: var(--color-primary-dark);
+  --bs-btn-active-bg: var(--color-primary-dark);
+  --bs-btn-active-border-color: var(--color-primary-dark);
+  --bs-btn-disabled-bg: #a08a7b;
+  --bs-btn-disabled-border-color: #a08a7b;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--color-primary);
+  --bs-btn-border-color: var(--color-primary);
+  --bs-btn-hover-bg: var(--color-primary);
+  --bs-btn-hover-border-color: var(--color-primary);
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-active-bg: var(--color-primary-dark);
+  --bs-btn-active-border-color: var(--color-primary-dark);
+  --bs-btn-active-color: #ffffff;
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.25rem rgba(123, 74, 45, 0.25);
+}
+
+.form-check-input:checked {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.pagination {
+  --bs-pagination-color: var(--color-primary);
+  --bs-pagination-hover-color: var(--color-primary-dark);
+  --bs-pagination-active-bg: var(--color-primary);
+  --bs-pagination-active-border-color: var(--color-primary);
+}
+
+.nav-tabs .nav-link {
+  color: var(--color-primary);
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--color-text);
+}
+
+.accordion {
+  --bs-accordion-active-bg: var(--color-surface);
+  --bs-accordion-active-color: var(--color-primary-dark);
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(123, 74, 45, 0.25);
+}
+
+
+/* ===============================
+   3. Шапка
+   =============================== */
+
+.site-header {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--bs-border-color);
+}
+
+.site-header .navbar {
+  --bs-navbar-color: var(--color-primary);
+  --bs-navbar-hover-color: var(--color-primary-dark);
+  --bs-navbar-active-color: var(--color-text);
+  --bs-navbar-brand-color: var(--color-text);
+  --bs-navbar-brand-hover-color: var(--color-primary);
+}
+
+/* Подчёркивание активного пункта меню */
+.site-header .nav-link.active {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
+
+
+/* ===============================
+   4. Hero-блок
+   Тёмный фон с мягким градиентом — чёрный фон фото сливается с ним
+   =============================== */
+
+.hero {
+  color: #fffaf4;
+  background-color: var(--color-dark);
+  background-image: radial-gradient(circle at 80% 50%, rgba(123, 74, 45, 0.55), transparent 60%);
+}
+
+.hero .lead {
+  color: #e9d8c6;
+}
+
+.hero__image {
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.5);
+}
+
+
+/* ===============================
+   5. Карточки
+   =============================== */
+
+.advantage-card__icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  background-color: var(--color-surface);
+  border-radius: 50%;
+}
+
+/* Обложка книги: одинаковая пропорция 3:4 у всех карточек.
+   height: auto обязателен — иначе атрибут height="400" у <img>
+   оставляет высоту 400px, и обложка обрезается по бокам */
+.book-card__cover {
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+/* На телефоне в карточке две колонки — уменьшаем название,
+   чтобы длинные слова не переносились посередине */
+@media (max-width: 575.98px) {
+  .book-card .card-title {
+    font-size: 1rem;
+  }
+
+  .book-card .card-text {
+    font-size: 0.875rem;
+  }
+}
+
+.book-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0.75rem 1.5rem rgba(43, 29, 20, 0.15);
+}
+
+.book-card:focus-within {
+  border-color: var(--color-primary);
+}
+
+/* Модификатор: редкое издание — золотая рамка */
+.book-card--rare {
+  border: 2px solid #c9a063;
+}
+
+/* Модификатор: книга выдана — обложка приглушена */
+.book-card--unavailable .book-card__cover {
+  filter: grayscale(0.8);
+  opacity: 0.7;
+}
+
+.book-card--unavailable:hover {
+  transform: none;
+}
+
+.book-terms {
+  background-color: var(--color-surface);
+}
+
+.book-cover {
+  width: 100%;
+  max-width: 360px;
+}
+
+
+/* ===============================
+   6. Карусель мероприятий
+   Слайды без фото — цветной фон и текст по центру
+   =============================== */
+
+.events-carousel__slide {
+  min-height: 260px;
+  color: #fffaf4;
+}
+
+.events-carousel__slide--1 { background-color: #54301b; }
+.events-carousel__slide--2 { background-color: #3d2a4a; }
+.events-carousel__slide--3 { background-color: #2f4a3a; }
+
+.events-carousel__content {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 3rem 4.5rem 3.5rem;
+  text-align: center;
+}
+
+
+/* ===============================
+   7. Каталог и таблица
+   =============================== */
+
+/* Фильтры прилипают при прокрутке — только на широком экране */
+@media (min-width: 992px) {
+  .catalog-filters {
+    position: sticky;
+    top: 5.5rem;
+  }
+}
+
+.specs-table th[scope="row"] {
+  width: 45%;
+  font-weight: 600;
+}
+
+
+/* ===============================
+   8. Подвал
+   =============================== */
+
+.site-footer {
+  color: #e9d8c6;
+  background-color: var(--color-dark);
+}
+
+.site-footer h2 {
+  color: #ffffff;
+}
+
+.site-footer a {
+  color: #f1c99a;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+
+/* ===============================
+   9. Видимый фокус при навигации с клавиатуры
+   =============================== */
+
+a:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid var(--color-primary-dark);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+.hero .btn:focus-visible,
+.site-footer a:focus-visible {
+  outline-color: #f1c99a;
+}
