@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Форма бронирования книги в городской библиотеке: выберите книгу, способ получения и удобную дату.">
+  <title>Заявка на бронирование — Городская библиотека</title>
+
+  <!-- Bootstrap подключён локально из папки vendor/, затем наш custom.css -->
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <header class="site-header sticky-top">
+    <nav class="navbar navbar-expand-lg" aria-label="Основная навигация">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">📚 Библиотека</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+                aria-controls="main-nav" aria-expanded="false" aria-label="Открыть меню">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="main-nav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+            <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог</a></li>
+            <li class="nav-item"><a class="nav-link" href="product.html">Книга</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="order.html">Заявка</a></li>
+            <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+          </ul>
+          <a class="btn btn-primary ms-lg-3" href="order.html">Забронировать книгу</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container py-4 flex-grow-1">
+    <nav aria-label="Хлебные крошки">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Заявка на бронирование</li>
+      </ol>
+    </nav>
+
+    <h1>Заявка на бронирование</h1>
+    <p class="lead mb-4">Заполните форму — мы подготовим книгу и пришлём подтверждение на e-mail.</p>
+
+    <div class="row g-4">
+      <section class="col-12 col-lg-8" aria-label="Форма заявки">
+        <div class="alert alert-success" id="order-success" role="status" hidden>
+          <h2 class="alert-heading h5">Заявка отправлена!</h2>
+          <p class="mb-0">Книга будет ждать вас на абонементе три дня. <a class="alert-link" href="catalog.html">Вернуться в каталог</a></p>
+        </div>
+
+        <form class="card card-body needs-validation" action="#" method="post" novalidate data-success="order-success">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <label class="form-label" for="name">Имя и фамилия</label>
+              <input class="form-control" id="name" name="name" type="text" placeholder="Иван Петров" minlength="2" autocomplete="name" required>
+              <div class="invalid-feedback">Введите имя (не короче 2 символов).</div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label" for="card-number">Номер читательского билета</label>
+              <div class="input-group">
+                <span class="input-group-text">№</span>
+                <input class="form-control" id="card-number" name="card-number" type="text" inputmode="numeric" placeholder="Если есть">
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label" for="email">E-mail</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text">@</span>
+                <input class="form-control" id="email" name="email" type="email" placeholder="example@mail.ru" autocomplete="email" required>
+                <div class="invalid-feedback">Введите корректный e-mail.</div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label" for="phone">Телефон</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text">+7</span>
+                <input class="form-control" id="phone" name="phone" type="tel" inputmode="tel" placeholder="(900) 000-00-00"
+                       pattern="\(\d{3}\) \d{3}-\d{2}-\d{2}" autocomplete="tel-national" aria-describedby="phone-hint" required>
+                <div class="invalid-feedback">Введите телефон в формате (900) 000-00-00.</div>
+              </div>
+              <div class="form-text" id="phone-hint">Формат: (900) 000-00-00</div>
+            </div>
+
+            <div class="col-12 col-md-8">
+              <label class="form-label" for="book">Книга</label>
+              <select class="form-select" id="book" name="book" required>
+                <option value="">Выберите книгу</option>
+                  <option value="tolstoy-war-and-peace">Война и мир — Л. Н. Толстой</option>
+                  <option value="bulgakov-master">Мастер и Маргарита — М. А. Булгаков</option>
+                  <option value="gogol-dead-souls">Мёртвые души — Н. В. Гоголь</option>
+                  <option value="dostoevsky-crime" disabled>Преступление и наказание — Ф. М. Достоевский (выдана)</option>
+                  <option value="pushkin-onegin">Евгений Онегин — А. С. Пушкин</option>
+                  <option value="sholokhov-don">Тихий Дон — М. А. Шолохов</option>
+                  <option value="turgenev-fathers">Отцы и дети — И. С. Тургенев</option>
+                  <option value="goncharov-oblomov" disabled>Обломов — И. А. Гончаров (выдана)</option>
+              </select>
+              <div class="invalid-feedback">Выберите книгу.</div>
+            </div>
+
+            <div class="col-12 col-md-4">
+              <label class="form-label" for="date">Дата визита</label>
+              <input class="form-control" id="date" name="date" type="date" required>
+              <div class="invalid-feedback">Выберите дату.</div>
+            </div>
+
+            <fieldset class="col-12">
+              <legend class="form-label fs-6">Где получить</legend>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" id="place-loan" name="place" type="radio" value="loan" checked>
+                <label class="form-check-label" for="place-loan">Абонемент (взять домой)</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" id="place-hall" name="place" type="radio" value="hall">
+                <label class="form-check-label" for="place-hall">Читальный зал</label>
+              </div>
+            </fieldset>
+
+            <div class="col-12">
+              <label class="form-label" for="comment">Комментарий</label>
+              <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="Например: нужно издание с крупным шрифтом"></textarea>
+            </div>
+
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" id="agreement" name="agreement" type="checkbox" required>
+                <label class="form-check-label" for="agreement">Я согласен на обработку персональных данных</label>
+                <div class="invalid-feedback">Нужно согласие на обработку данных.</div>
+              </div>
+            </div>
+
+            <div class="col-12 d-flex flex-wrap gap-2">
+              <button class="btn btn-primary btn-lg" type="submit">Отправить заявку</button>
+              <button class="btn btn-outline-secondary btn-lg" type="reset">Очистить</button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <aside class="col-12 col-lg-4">
+        <div class="card">
+          <div class="card-header fw-semibold">Как это работает</div>
+          <ol class="list-group list-group-numbered list-group-flush">
+            <li class="list-group-item">Вы отправляете заявку</li>
+            <li class="list-group-item">Мы находим книгу и откладываем её</li>
+            <li class="list-group-item">Приходит письмо-подтверждение</li>
+            <li class="list-group-item">Книга ждёт вас три дня</li>
+          </ol>
+        </div>
+        <div class="alert alert-info mt-3 mb-0" role="note">
+          Нет читательского билета? Его оформят при первом визите — возьмите паспорт.
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer mt-auto pt-5 pb-3">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <h2 class="h5">📚 Библиотека</h2>
+          <p class="mb-0">Городская библиотека: более 50 000 книг, читальный зал и бронирование онлайн.</p>
+        </div>
+        <div class="col-6 col-md-4">
+          <h2 class="h5">Разделы</h2>
+          <ul class="list-unstyled mb-0">
+            <li><a href="catalog.html">Каталог</a></li>
+            <li><a href="order.html">Заявка на книгу</a></li>
+            <li><a href="index.html#faq">Частые вопросы</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-4">
+          <h2 class="h5">Контакты</h2>
+          <ul class="list-unstyled mb-0">
+            <li>+7 (900) 000-00-00</li>
+            <li>info@example.com</li>
+            <li>г. Москва, ул. Читальная, 12</li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <p class="small mb-0">&copy; 2026 Учебный проект. Дисциплина «Фронтенд и бэкенд разработка», КР №2.</p>
+    </div>
+  </footer>
+
+  <a class="btn btn-primary position-fixed bottom-0 end-0 m-3 z-3" href="#">Наверх</a>
+
+  <!-- Всплывающее уведомление (Bootstrap toast) — показывается после отправки формы -->
+  <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+    <div class="toast align-items-center text-bg-success border-0" id="success-toast" role="status" aria-live="polite" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">Заявка отправлена! Мы подготовим книгу к вашему приходу.</div>
+        <button class="btn-close btn-close-white me-2 m-auto" type="button" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
