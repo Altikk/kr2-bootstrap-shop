@@ -182,6 +182,160 @@
         </div>
       </section>
 
+      <section class="mb-5" id="new-books">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+          <h2 class="mb-0">Новые поступления</h2>
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-primary" type="button" data-bs-target="#new-books-carousel" data-bs-slide="prev" aria-label="Предыдущие книги">←</button>
+            <button class="btn btn-outline-primary" type="button" data-bs-target="#new-books-carousel" data-bs-slide="next" aria-label="Следующие книги">→</button>
+          </div>
+        </div>
+
+        <div class="carousel slide books-carousel" id="new-books-carousel" data-bs-touch="true">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row row-cols-2 row-cols-lg-4 g-3 g-md-4">
+                <div class="col">
+                  <article class="card book-card h-100">
+                    <span class="badge text-bg-success position-absolute top-0 start-0 m-2">Новое</span>
+                    <img class="card-img-top book-card__cover" src="images/turgenev-fathers.svg" alt="Обложка книги «Отцы и дети»" width="300" height="400" loading="lazy">
+                    <div class="card-body">
+                      <h3 class="card-title h5">Отцы и дети</h3>
+                      <p class="card-text text-body-secondary mb-2">И. С. Тургенев, 1862</p>
+                      <span class="badge rounded-pill text-bg-light border">Роман</span>
+                      <span class="badge rounded-pill text-bg-success">В наличии</span>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 d-flex flex-wrap gap-2 pb-3">
+                      <a class="btn btn-outline-primary btn-sm" href="product.html">Подробнее</a>
+                      <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#order-modal" data-book="Отцы и дети">Забронировать</button>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="col">
+                  <article class="card book-card h-100">
+                    <span class="badge text-bg-success position-absolute top-0 start-0 m-2">Новое</span>
+                    <img class="card-img-top book-card__cover" src="images/gogol-dead-souls.svg" alt="Обложка книги «Мёртвые души»" width="300" height="400" loading="lazy">
+                    <div class="card-body">
+                      <h3 class="card-title h5">Мёртвые души</h3>
+                      <p class="card-text text-body-secondary mb-2">Н. В. Гоголь, 1842</p>
+                      <span class="badge rounded-pill text-bg-light border">Поэма</span>
+                      <span class="badge rounded-pill text-bg-success">В наличии</span>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 d-flex flex-wrap gap-2 pb-3">
+                      <a class="btn btn-outline-primary btn-sm" href="product.html">Подробнее</a>
+                      <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#order-modal" data-book="Мёртвые души">Забронировать</button>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="col">
+                  <article class="card book-card h-100">
+                    <img class="card-img-top book-card__cover" src="images/sholokhov-don.svg" alt="Обложка книги «Тихий Дон»" width="300" height="400" loading="lazy">
+                    <div class="card-body">
+                      <h3 class="card-title h5">Тихий Дон</h3>
+                      <p class="card-text text-body-secondary mb-2">М. А. Шолохов, 1940</p>
+                      <span class="badge rounded-pill text-bg-light border">Роман-эпопея</span>
+                      <span class="badge rounded-pill text-bg-success">В наличии</span>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 d-flex flex-wrap gap-2 pb-3">
+                      <a class="btn btn-outline-primary btn-sm" href="product.html">Подробнее</a>
+                      <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#order-modal" data-book="Тихий Дон">Забронировать</button>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="col">
+                  <article class="card book-card book-card--unavailable h-100">
+                    <img class="card-img-top book-card__cover" src="images/goncharov-oblomov.svg" alt="Обложка книги «Обломов»" width="300" height="400" loading="lazy">
+                    <div class="card-body">
+                      <h3 class="card-title h5">Обломов</h3>
+                      <p class="card-text text-body-secondary mb-2">И. А. Гончаров, 1859</p>
+                      <span class="badge rounded-pill text-bg-light border">Роман</span>
+                      <span class="badge rounded-pill text-bg-secondary">Выдана</span>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 d-flex flex-wrap gap-2 pb-3">
+                      <a class="btn btn-outline-primary btn-sm" href="product.html">Подробнее</a>
+                      <button class="btn btn-primary btn-sm" type="button" disabled>Нет в наличии</button>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row row-cols-2 row-cols-lg-4 g-3 g-md-4">
+                <div class="col">
+                  <article class="card book-card book-card--unavailable h-100">
+                    <img class="card-img-top book-card__cover" src="images/dostoevsky-crime.svg" alt="Обложка книги «Преступление и наказание»" width="300" height="400" loading="lazy">
+                    <div class="card-body">
+                      <h3 class="card-title h5">Преступление и наказание</h3>
+                      <p class="card-text text-body-secondary mb-2">Ф. М. Достоевский, 1866</p>
+                      <span class="badge rounded-pill text-bg-light border">Роман</span>
+                      <span class="badge rounded-pill text-bg-secondary">Выдана</span>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 d-flex flex-wrap gap-2 pb-3">
+                      <a class="btn btn-outline-primary btn-sm" href="product.html">Подробнее</a>
+                      <button class="btn btn-primary btn-sm" type="button" disabled>Нет в наличии</button>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="col">
+                  <article class="card book-card h-100">
+                    <span class="badge text-bg-primary position-absolute top-0 start-0 m-2">Хит</span>
+                    <img class="card-img-top book-card__cover" src="images/pushkin-onegin.svg" alt="Обложка книги «Евгений Онегин»" width="300" height="400" loading="lazy">
+                    <div class="card-body">
+                      <h3 class="card-title h5">Евгений Онегин</h3>
+                      <p class="card-text text-body-secondary mb-2">А. С. Пушкин, 1833</p>
+                      <span class="badge rounded-pill text-bg-light border">Роман в стихах</span>
+                      <span class="badge rounded-pill text-bg-success">В наличии</span>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 d-flex flex-wrap gap-2 pb-3">
+                      <a class="btn btn-outline-primary btn-sm" href="product.html">Подробнее</a>
+                      <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#order-modal" data-book="Евгений Онегин">Забронировать</button>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="col">
+                  <article class="card book-card book-card--rare h-100">
+                    <span class="badge text-bg-dark position-absolute top-0 start-0 m-2">Редкое издание</span>
+                    <img class="card-img-top book-card__cover" src="images/bulgakov-master.svg" alt="Обложка книги «Мастер и Маргарита»" width="300" height="400" loading="lazy">
+                    <div class="card-body">
+                      <h3 class="card-title h5">Мастер и Маргарита</h3>
+                      <p class="card-text text-body-secondary mb-2">М. А. Булгаков, 1967</p>
+                      <span class="badge rounded-pill text-bg-light border">Роман</span>
+                      <span class="badge rounded-pill text-bg-success">В наличии</span>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 d-flex flex-wrap gap-2 pb-3">
+                      <a class="btn btn-outline-primary btn-sm" href="product.html">Подробнее</a>
+                      <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#order-modal" data-book="Мастер и Маргарита">Забронировать</button>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="col">
+                  <article class="card book-card h-100">
+                    <span class="badge text-bg-primary position-absolute top-0 start-0 m-2">Хит</span>
+                    <img class="card-img-top book-card__cover" src="images/tolstoy-war-and-peace.svg" alt="Обложка книги «Война и мир»" width="300" height="400" loading="lazy">
+                    <div class="card-body">
+                      <h3 class="card-title h5">Война и мир</h3>
+                      <p class="card-text text-body-secondary mb-2">Л. Н. Толстой, 1869</p>
+                      <span class="badge rounded-pill text-bg-light border">Роман-эпопея</span>
+                      <span class="badge rounded-pill text-bg-success">В наличии</span>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 d-flex flex-wrap gap-2 pb-3">
+                      <a class="btn btn-outline-primary btn-sm" href="product.html">Подробнее</a>
+                      <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#order-modal" data-book="Война и мир">Забронировать</button>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="mb-5" id="events">
         <h2 class="mb-4">Мероприятия</h2>
         <div class="carousel slide events-carousel rounded-4 overflow-hidden" id="events-carousel" data-bs-ride="carousel">

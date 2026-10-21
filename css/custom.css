@@ -166,6 +166,10 @@
   max-width: 360px;
 }
 
+.books-carousel .carousel-item {
+  padding: 0.5rem 0.25rem 1.25rem;
+}
+
 .events-carousel__slide {
   min-height: 260px;
   color: #fffaf4;
